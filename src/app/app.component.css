@@ -1,0 +1,9 @@
+.btn{
+    background-color: blue;
+    cursor: pointer;
+}
+.container{
+    padding: 40px;
+    justify-content: center;
+    display: flex;
+}

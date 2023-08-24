@@ -1,0 +1,50 @@
+<div class="container" *ngIf="flag">
+  <input (change)="selectFile($event)" type="file" />
+  <button (click)="uploadFile()" class="btn" mat-raised-button color="primary">
+    Upload
+  </button>
+</div>
+
+<div class="container" *ngIf="!flag">
+  <h1>please wait.....</h1>
+  <h2>uploading....</h2>
+</div>
+
+     
+<table>
+         
+  <thead>
+       
+    <tr>
+           
+      <th>id</th>
+           
+      <th>Column 2</th>
+           
+      <th>Column 3</th>
+           
+      <th>Column 4</th>
+         
+    </tr>
+     
+  </thead>
+   
+  <tbody>
+    <ng-container *ngFor="let item of ExcelData">
+      <tr>
+             
+        <td>{{ item?.productId }}</td>
+             
+        <td>{{ item?.productName }}</td>
+             
+        <td>{{ item?.productDesc }}</td>
+        <td>{{ item?.productPrice }}</td>
+           
+      </tr>
+             </ng-container
+    >
+     
+  </tbody>
+       
+</table>
+   
