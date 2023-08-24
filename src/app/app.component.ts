@@ -36,6 +36,9 @@ export class AppComponent implements OnInit {
    * method to upload the file
    * @memberof AppComponent
    */
+
+
+  //method to upload file to server
   uploadFile(): void {
     // Create a FormData object to send the file to the server
     let formData = new FormData();
@@ -44,7 +47,7 @@ export class AppComponent implements OnInit {
     this.flag = false;
     // Make an HTTP POST request to upload the file
     this.excelService.uploadFile(formData).subscribe(
-      //subscribe gives teo method for success adn for error
+      //subscribe gives to method for success adn for error
       (data: any) => {
         // Reset the flag to indicate that the upload is complete
         this.flag = true;
@@ -58,6 +61,9 @@ export class AppComponent implements OnInit {
     );
     this.getData();
   }
+
+
+  //method to get data  on server
   getData(): void {
     this.excelService.getData()
       .subscribe((data: any) => {
@@ -65,8 +71,6 @@ export class AppComponent implements OnInit {
           this.show = true; // Assigning the parsed data to this.ExcelData
           const responseBody = JSON.parse(data.body);
           this.ExcelData = responseBody;
-          console.log('this is my response', this.ExcelData);
-          console.log('Success. Server returned status:', data.status);
         } else {
           // this.ExcelData = data;
           console.log(
@@ -76,7 +80,7 @@ export class AppComponent implements OnInit {
         }
       }),
       (error: any) => {
-        console.log('Failed to upload file.', error);
+        
         this.show = true;
       };
   }
